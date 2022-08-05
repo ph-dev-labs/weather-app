@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Button, Box, Typography } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box
+      sx={{
+        width: 300,
+        height: 300,
+        backgroundColor: "black",
+        "&:hover": {
+          backgroundColor: "primary.main",
+          opacity: [0.9, 0.8, 0.7],
+        },
+      }}
+    >
+      <div className="search">
+        <TextField id="outlined-basic" size="small" variant="outlined" />
+        <Button variant="outlined">Search</Button>
+      </div>
+      <Typography variant="h4" component="h1">
+        weather in Nigeria
+      </Typography>
+      <Typography variant="h2" component="h1">
+        52"c
+      </Typography>
+      <Typography variant="h7" component="p">
+        part cloudy and rainy
+      </Typography>
+    </Box>
   );
 }
 
