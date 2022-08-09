@@ -7,7 +7,7 @@ import "./App.css";
 
 function App() {
   const [cityInpt, setCityInpt] = useState("");
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("port harcourt");
 
 
   const handleSubmit = () => {
@@ -21,7 +21,6 @@ function App() {
   };
 
   const {data} = useGetWeatherQuery(city)
-  console.log(data)
   if(data)
   return (
     <Box
