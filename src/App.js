@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { useGetWeatherQuery } from "./redux/weatherApi";
 import { Box, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import "./App.css";
 
 function App() {
+  const [cityInpt, setCityInpt] = useState("");
+  const [city, setCity] = useState("");
+
+
+  const handleSubmit = () => {
+    setCity(cityInpt)
+    setCityInpt("")
+  }
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    setCityInpt(event.target.value);
+  };
+
+  const {data} = useGetWeatherQuery(city)
+  console.log(data)
+  if(data)
   return (
     <Box
       sx={{
@@ -29,6 +47,7 @@ function App() {
             width: "350px",
             borderRadius: "6px",
           }}
+          onChange={handleChange}
         />
         <SearchIcon
           color="primary"
@@ -37,6 +56,7 @@ function App() {
             margin: "10px",
             marginTop: "25px",
           }}
+          onClick={handleSubmit}
         />
       </div>
       <Typography
@@ -48,7 +68,7 @@ function App() {
           marginLeft: "70px",
         }}
       >
-        weather in Nigeria
+        {`weather in ${data.name}`}
       </Typography>
       <Typography
         variant="h4"
@@ -59,7 +79,7 @@ function App() {
           marginLeft: "70px",
         }}
       >
-        52"c
+        {`${data.main.temp}'C`}
       </Typography>
       <Typography
         variant="h7"
@@ -70,7 +90,7 @@ function App() {
           marginLeft: "70px",
         }}
       >
-        part cloudy and rainy
+        {data.weather[0].description}
       </Typography>
     </Box>
   );
