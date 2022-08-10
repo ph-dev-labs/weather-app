@@ -7,12 +7,12 @@ import "./App.css";
 
 function App() {
   const [cityInpt, setCityInpt] = useState("");
-  const [city, setCity] = useState("port harcourt");
+  const [city, setCity] = useState("lagos");
 
 
   const handleSubmit = () => {
     setCity(cityInpt)
-    setCityInpt("")
+    setCityInpt('')
   }
 
   const handleChange = (event) => {
@@ -67,7 +67,7 @@ function App() {
           marginLeft: "70px",
         }}
       >
-        {`weather in ${data.name}`}
+        {`weather in ${data.location.city}`}
       </Typography>
       <Typography
         variant="h4"
@@ -78,7 +78,7 @@ function App() {
           marginLeft: "70px",
         }}
       >
-        {`${data.main.temp}'C`}
+        {`${data.current_observation.condition.temperature}'C`}
       </Typography>
       <Typography
         variant="h7"
@@ -89,7 +89,7 @@ function App() {
           marginLeft: "70px",
         }}
       >
-        {data.weather[0].description}
+        {data.current_observation.condition.text}
       </Typography>
     </Box>
   );
