@@ -25,7 +25,7 @@ function App() {
   return (
     <Box
       sx={{
-        width: 600,
+        width: 400,
         height: 600,
         backgroundColor: "black",
         margin: "auto",
@@ -42,18 +42,18 @@ function App() {
           sx={{
             backgroundColor: "white",
             marginTop: "25px",
-            marginLeft: "55px",
-            width: "350px",
+            marginLeft: "10px",
+            width: "250px",
             borderRadius: "6px",
           }}
           onChange={handleChange}
         />
         <SearchIcon
           color="primary"
-          fontSize="large"
+          fontSize="medium"
           sx={{
-            margin: "10px",
-            marginTop: "25px",
+            marginLeft: "10px",
+            marginTop: "32px",
           }}
           onClick={handleSubmit}
         />
