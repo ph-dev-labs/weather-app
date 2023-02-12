@@ -78,7 +78,7 @@ function App() {
           marginLeft: "70px",
         }}
       >
-        {`${data.current_observation.condition.temperature}'C`}
+        {`${data.current_observation.condition.temperature}.F`}
       </Typography>
       <Typography
         variant="h7"
